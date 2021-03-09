@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+      <div class="card card-body">
+
+        <p>Voulez-vous supprimer cette commande</p>
+        <form action="{% url 'supprimer_commande' items.id %}" method="POST">
+          {% csrf_token %}
+          {{ form }}
+          <a class="btn btn-warning" href="{% url 'acceuil' %}">Annuler</a>
+          <input class="btn btn-danger" type="submit" name="Confirmer">
+        </form>
+
+      </div>
+  </div>
+</div>
+
+{% endblock content%}
